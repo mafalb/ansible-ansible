@@ -1,0 +1,11 @@
+# vim: set ft=yaml ts=2:
+---
+
+- name: include OS specific data
+  include_vars:
+    file: "{{ ansible_os_family }}.yml"  
+
+- name: dependencies for ansible are present
+  package:
+    name: "{{ ansible.needed_packages }}"
+    state: present
