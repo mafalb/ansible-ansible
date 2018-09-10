@@ -5,4 +5,5 @@ ansible:
   needed_packages:
     #- python-selinux
     #- policycoreutils-python-utils
+    - python-apt
     - python-openssl
