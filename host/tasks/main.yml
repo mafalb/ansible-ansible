@@ -5,7 +5,7 @@
   include_vars:
     file: "{{ ansible_os_family }}.yml"
 
-- name: dependencies for ansible are present
+- name: dependencies for ansible does exist
   package:
     name: "{{ ansible.needed_packages }}"
     state: present

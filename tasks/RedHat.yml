@@ -1,0 +1,7 @@
+# vi: set ft=yaml ts=2:
+---
+
+- name: ansible does exist
+  yum:
+    name: ansible
+    state: "{{ (ansible_install_latest == true)|ternary('latest','present') }}"

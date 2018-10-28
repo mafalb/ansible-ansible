@@ -1,0 +1,8 @@
+# vim: set ft=yaml ts=2:
+---
+
+ansible:
+  needed_packages:
+    - libsemanage-python
+    - policycoreutils-python
+    - pyOpenSSL

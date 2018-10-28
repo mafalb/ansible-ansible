@@ -1,0 +1,14 @@
+# vi: set ft=yaml ts=2:
+---
+
+- name: include OS specific variables
+  include_vars:
+    file: "{{ ansible_os_family }}.yml"
+
+- debug: var=ansible
+  tags:
+    - never
+    - debug
+
+- name: include OS family specific tasks
+  include_tasks: "{{ ansible_os_family }}.yml"
