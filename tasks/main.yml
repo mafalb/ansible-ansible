@@ -2,8 +2,7 @@
 ---
 
 - name: include OS specific variables
-  include_vars:
-    file: "{{ ansible_os_family }}.yml"
+  include_vars: "{{ ansible_os_family }}.yml"
 
 - debug: var=ansible
   tags:

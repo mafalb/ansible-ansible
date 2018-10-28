@@ -17,8 +17,7 @@
     ansible_python_major_version: "{{ ansible_python_version|regex_replace('^([0-9]).*','\\1') }}"
 
 - name: include OS specific data
-  include_vars:
-    file: "{{ ansible_os_family }}.yml"
+  include_vars: "{{ ansible_os_family }}.yml"
 
 - debug: var=ansible
   tags:
