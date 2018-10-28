@@ -1,6 +1,17 @@
 # vim: set ft=yaml ts=2:
 ---
 
+- name: assertions
+  assert:
+    that:
+      - ansible_os_family in ["Debian","RedHat"]
+
+- name: assertions
+  when: ansible_os_family == 'Debian'
+  assert:
+    that:
+      - ansible_distribution in ["Ubuntu"]
+
 - name: set python major version fact
   set_fact:
     ansible_python_major_version: "{{ ansible_python_version|regex_replace('^([0-9]).*','\\1') }}"
@@ -19,5 +30,11 @@
     - never
     - debug
 
-- name: include OS family specific tasks
-  include: "{{ ansible_os_family }}.yml"
+- name: include OS family specific tasks for Debian
+  when: ansible_os_family == "Debian"
+  include: Debian.yml
+
+- name: include OS family specific tasks for RedHat
+  when: ansible_os_family == "RedHat"
+  include: RedHat.yml
+
