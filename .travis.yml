@@ -1,6 +1,6 @@
 ---
 sudo: required
-language: python
+language: minimal
 services:
   - docker
 before_install:
@@ -11,4 +11,4 @@ install:
   #- pip install molecule
   #- pip install required driver (e.g. docker, python-vagrant, shade, boto, apache-libcloud)
 script:
-  - ansible-playbook --sudo -D tests/test.yml
+  - ANSIBLE_ROLES_PATH=. ansible-playbook --sudo -D tests/test.yml
