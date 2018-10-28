@@ -5,7 +5,7 @@ services:
   - docker
 before_install:
   - env
-  - sudo apt-get install ansible
+  - sudo apt-get install ansible && sudo mkdir -p /etc/ansible/roles
   - sudo echo -e "localhost ansible_connection=local\n" | sudo tee /etc/ansible/hosts
   - ansible localhost -m setup
 install:
