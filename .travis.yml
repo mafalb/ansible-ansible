@@ -6,7 +6,8 @@ services:
 before_install:
   - sudo apt-get install ansible
   - sudo echo -e "localhost ansible_connection=local\n" | sudo tee /etc/ansible/hosts
-#install:
+install:
+  - pwd
   #- pip install molecule
   #- pip install required driver (e.g. docker, python-vagrant, shade, boto, apache-libcloud)
 script:
