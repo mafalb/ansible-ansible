@@ -6,9 +6,11 @@ services:
 before_install:
   - env
   - sudo apt-add-repository --yes ppa:ansible/ansible
+  - sudo apt-get update
   - sudo apt-get install ansible && sudo mkdir -p /etc/ansible/roles
   - sudo echo -e "localhost ansible_connection=local\n" | sudo tee /etc/ansible/hosts
   - ansible localhost -m setup
+  - ansible --version
 install:
   - pwd
   - sudo ln -s $TRAVIS_BUILD_DIR /etc/ansible/roles/ansible
