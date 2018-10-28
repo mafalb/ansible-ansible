@@ -5,5 +5,5 @@ ansible:
   needed_packages:
     #- python-selinux
     #- policycoreutils-python-utils
-    - python-apt
-    - python-openssl
+    - "{{ (ansible_python_major_version == 2)|ternary('python-apt','python3-apt') }}"
+    - "{{ (ansible_python_major_version == 2)|ternary('python-openssl','python3-openssl') }}"

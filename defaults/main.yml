@@ -1,3 +1,4 @@
 ---
 
 ansible_install_latest: false
+ansible_install_in_check_mode: true

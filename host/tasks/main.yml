@@ -1,11 +1,26 @@
 # vim: set ft=yaml ts=2:
 ---
 
+- name: set python major version fact
+  set_fact:
+    ansible_python_major_version: "{{ ansible_python_version|regex_replace('^([0-9]).*','\\1') }}"
+
 - name: include OS specific data
   include_vars:
     file: "{{ ansible_os_family }}.yml"
 
+- debug: var=ansible
+  tags:
+    - never
+    - debug
+
+- debug: var=ansible_python_major_version
+  tags:
+    - never
+    - debug
+
 - name: dependencies for ansible does exist
+  check_mode: "{{ ansible_check_mode|ternary(ansible_install_in_check_mode,true) }}"
   package:
     name: "{{ ansible.needed_packages }}"
     state: present
