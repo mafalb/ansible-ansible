@@ -4,10 +4,10 @@ language: python
 services:
   - docker
 before_install:
-  - sudo apt-get install ansible
-  - sudo echo -e "localhost ansible_connection=local\n" >/etc/ansible/hosts
+  - apt-get install ansible
+  - echo -e "localhost ansible_connection=local\n" >/etc/ansible/hosts
 #install:
   #- pip install molecule
   #- pip install required driver (e.g. docker, python-vagrant, shade, boto, apache-libcloud)
 script:
-  - ansible -i localhost, -c local test/ansible.yml
+  - ansible-playbook -D test/ansible.yml
