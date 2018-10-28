@@ -11,4 +11,4 @@
     - debug
 
 - name: include OS family specific tasks
-  include_tasks: "{{ ansible_os_family }}.yml"
+  include: "{{ ansible_os_family }}.yml"
