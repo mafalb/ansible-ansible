@@ -10,6 +10,6 @@ before_install:
   - ansible localhost -m setup
 install:
   - pwd
-  - ln -s TRAVIS_BUILD_DIR /etc/ansible/roles/ansible
+  - ln -s $TRAVIS_BUILD_DIR /etc/ansible/roles/ansible
 script:
   - ansible-playbook --sudo -D tests/test.yml
