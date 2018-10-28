@@ -4,10 +4,12 @@ language: minimal
 services:
   - docker
 before_install:
+  - env
   - sudo apt-get install ansible
   - sudo echo -e "localhost ansible_connection=local\n" | sudo tee /etc/ansible/hosts
   - ansible localhost -m setup
 install:
   - pwd
+  - sudo git clone --depth=50 --branch=$TRAVIS_BRANCH https://github.com/$TRAVIS_REPO_SLUG /etc/ansible/roles/ansible
 script:
   - ansible-playbook --sudo -D tests/test.yml
