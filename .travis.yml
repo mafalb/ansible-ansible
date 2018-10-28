@@ -15,5 +15,5 @@ install:
   - pwd
   - sudo ln -s $TRAVIS_BUILD_DIR /etc/ansible/roles/ansible
 script:
-  - ansible-playbook --sudo -D tests/test.yml -C
-  - ansible-playbook --sudo -D tests/test.yml
+  - ansible-playbook --become -D tests/test.yml -C
+  - ansible-playbook --become -D tests/test.yml
