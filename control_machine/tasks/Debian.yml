@@ -5,8 +5,3 @@
   apt_repository:
     repo: ppa:ansible/ansible
     update_cache: true
-
-- name: ansible does exist
-  apt:
-    name: ansible
-    state: "{{ (ansible_install_latest == true)|ternary('latest','present') }}"

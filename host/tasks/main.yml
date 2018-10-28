@@ -16,9 +16,6 @@
   set_fact:
     ansible_python_major_version: "{{ ansible_python_version|regex_replace('^([0-9]).*','\\1') }}"
 
-- name: include OS specific data
-  include_vars: "{{ ansible_os_family }}.yml"
-
 - debug: var=ansible
   tags:
     - never
@@ -29,11 +26,8 @@
     - never
     - debug
 
-- name: include OS family specific tasks for Debian
-  when: ansible_os_family == "Debian"
-  include: Debian.yml
-
-- name: include OS family specific tasks for RedHat
-  when: ansible_os_family == "RedHat"
-  include: RedHat.yml
-
+- name: dependencies for ansible does exist
+  check_mode: "{{ ansible_check_mode|ternary(ansible_install_in_check_mode,true) }}"
+  package:
+    name: "{{ ansible.needed_packages }}"
+    state: present

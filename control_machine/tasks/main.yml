@@ -1,7 +1,11 @@
 # vi: set ft=yaml ts=2:
 ---
 
+- name: include OS family specific tasks
+  include_tasks:
+    file: "{{ ansible_os_family }}.yml"
+
 - name: ansible does exist
-  yum:
+  package:
     name: ansible
     state: "{{ (ansible_install_latest == true)|ternary('latest','present') }}"

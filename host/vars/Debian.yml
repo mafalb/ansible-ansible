@@ -1,9 +1,0 @@
-# vim: set ft=yaml ts=2:
----
-
-ansible:
-  needed_packages:
-    #- python-selinux
-    #- policycoreutils-python-utils
-    - "{{ (ansible_python_major_version == '2')|ternary('python-apt','python3-apt') }}"
-    - "{{ (ansible_python_major_version == '2')|ternary('python-openssl','python3-openssl') }}"

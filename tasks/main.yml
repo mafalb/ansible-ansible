@@ -8,11 +8,3 @@
   tags:
     - never
     - debug
-
-- name: include OS family specific tasks
-  when: ansible_os_family == "Debian"
-  include: Debian.yml
-
-- name: include OS family specific tasks
-  when: ansible_os_family == "RedHat"
-  include: RedHat.yml
