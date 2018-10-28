@@ -10,4 +10,4 @@ before_install:
   #- pip install molecule
   #- pip install required driver (e.g. docker, python-vagrant, shade, boto, apache-libcloud)
 script:
-  - ansible-playbook -D tests/test.yml
+  - ansible-playbook --sudo -D tests/test.yml
