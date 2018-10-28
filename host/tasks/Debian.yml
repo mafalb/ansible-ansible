@@ -7,7 +7,7 @@
     update_cache: true
 
 - name: dependencies for ansible does exist
-  always_run: "{{ ansible_check_mode|ternary(ansible_install_in_check_mode,false) }}"
+  check_mode: "{{ ansible_check_mode|ternary(ansible_install_in_check_mode,true) }}"
   apt:
     name: "{{ ansible.needed_packages }}"
     state: present
