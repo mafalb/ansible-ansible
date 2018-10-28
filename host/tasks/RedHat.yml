@@ -1,0 +1,13 @@
+# vi: set ft=yaml ts=2:
+---
+
+- name: ppa for ansible does exist
+  apt_repository:
+    repo: ppa:ansible/ansible
+    update_cache: true
+
+- name: dependencies for ansible does exist
+  always_run: "{{ ansible_check_mode|ternary(ansible_install_in_check_mode,false) }}"
+  yum:
+    name: "{{ ansible.needed_packages }}"
+    state: present

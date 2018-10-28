@@ -19,8 +19,5 @@
     - never
     - debug
 
-- name: dependencies for ansible does exist
-  always_run: "{{ ansible_check_mode|ternary(ansible_install_in_check_mode,false) }}"
-  package:
-    name: "{{ ansible.needed_packages }}"
-    state: present
+- name: include OS family specific tasks
+  include_tasks: "{{ ansible_os_family }}.yml"
