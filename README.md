@@ -5,18 +5,17 @@
 ```
 - hosts: localhost
   roles:
-    - role: ansible
+    - role: ansible/control_machine
 ```
 
 ```
 - hosts: localhost
   roles:
-    - role: ansible/host
+    - role: ansible/node
 ```
 
 The latter will only install dependencies needed on an ansible node, not ansible itself.
-
-
+The former will install ansible + node
 
 ## Variables
 
