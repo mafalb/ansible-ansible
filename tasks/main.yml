@@ -2,9 +2,19 @@
 ---
 
 - name: include OS specific variables
-  include_vars: "{{ ansible_os_family }}.yml"
+  include_vars:
+    file: "{{ ansible_os_family }}.yml"
+
+- name: set python major version fact
+  set_fact:
+    ansible_python_major_version: "{{ ansible_python_version|regex_replace('^([0-9]).*','\\1') }}"
 
 - debug: var=ansible
+  tags:
+    - never
+    - debug
+
+- debug: var=ansible_python_major_version
   tags:
     - never
     - debug

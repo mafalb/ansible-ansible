@@ -1,6 +1,11 @@
 # vi: set ft=yaml ts=2:
 ---
 
+- name: assertions
+  assert:
+    that:
+      - ansible_os_family in ["Debian","RedHat"]
+
 - name: include OS family specific tasks
   include_tasks:
     file: "{{ ansible_os_family }}.yml"

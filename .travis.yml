@@ -5,6 +5,9 @@ services:
   - docker
 before_install:
   - env
+  - dpkg -l
+  - pip list
+  - docker --version
   - sudo apt-add-repository --yes ppa:ansible/ansible
   - sudo apt-get update
   - sudo apt-get install ansible && sudo mkdir -p /etc/ansible/roles
