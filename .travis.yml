@@ -2,8 +2,6 @@
 sudo: required
 dist: xenial
 language: minimal
-services:
-  - docker
 before_install:
   - env
   - dpkg -l
