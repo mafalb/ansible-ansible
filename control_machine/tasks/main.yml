@@ -19,4 +19,3 @@
   copy:
     src: ansible.cfg
     dest: /etc/ansible/ansible.cfg
-
