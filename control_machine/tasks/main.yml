@@ -14,3 +14,9 @@
   package:
     name: ansible
     state: "{{ (ansible_install_latest == true)|ternary('latest','present') }}"
+
+- name: ansible.cfg does exist
+  copy:
+    src: ansible.cfg
+    dest: /etc/ansible/ansible.cfg
+
