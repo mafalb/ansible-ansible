@@ -1,4 +1,4 @@
 ---
 - hosts: localhost
   roles:
-    - ansible/control_machine
+    - mafalb.ansible/control_machine
