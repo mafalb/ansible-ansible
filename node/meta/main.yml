@@ -2,4 +2,4 @@
 ---
 
 dependencies:
-  - role: ansible
+  - role: mafalb.ansible
