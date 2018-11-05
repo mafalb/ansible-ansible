@@ -14,7 +14,9 @@
     name: ansible
     state: "{{ (ansible_install_latest == true)|ternary('latest','present') }}"
 
+# for now i skip this
 - name: ansible.cfg does exist
+  when: false
   copy:
     src: ansible.cfg
     dest: /etc/ansible/ansible.cfg
