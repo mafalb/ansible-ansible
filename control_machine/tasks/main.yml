@@ -14,6 +14,12 @@
     name: ansible
     state: "{{ (ansible_install_latest == true)|ternary('latest','present') }}"
 
+- name: debug ansible.lint
+  debug: var=ansible.lint
+  tags:
+    - never
+    - debug
+
 - name: ansible-lint does exist
   when: ansible.lint
   package:
