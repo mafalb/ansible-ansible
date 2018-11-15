@@ -6,4 +6,4 @@ ansible:
     - libsemanage-python
     - policycoreutils-python
     - pyOpenSSL
-
+  lint: "{{ ansible_lint|default(true) }}"

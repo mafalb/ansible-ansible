@@ -15,6 +15,7 @@
     state: "{{ (ansible_install_latest == true)|ternary('latest','present') }}"
 
 - name: ansible-lint does exist
+  when: ansible.lint
   package:
     name: ansible-lint
     state: present
