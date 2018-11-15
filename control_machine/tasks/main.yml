@@ -14,6 +14,11 @@
     name: ansible
     state: "{{ (ansible_install_latest == true)|ternary('latest','present') }}"
 
+- name: ansible-lint does exist
+  package:
+    name: ansible-lint
+    state: present
+
 - name: ansible.cfg does exist
   template:
     src: ansible.cfg.j2
