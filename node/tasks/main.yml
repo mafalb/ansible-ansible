@@ -13,7 +13,7 @@
       - ansible_distribution in ["Ubuntu"]
 
 - name: dependencies for ansible does exist
-  check_mode: "{{ ansible_check_mode|ternary(ansible_install_in_check_mode,true) }}"
+  check_mode: "{{ ansible_check_mode|ternary(ansible_install_in_check_mode,false) }}"
   package:
     name: "{{ ansible.needed_packages }}"
     state: present
