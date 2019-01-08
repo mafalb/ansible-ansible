@@ -20,5 +20,6 @@ install:
   - pwd
   - sudo ln -s $TRAVIS_BUILD_DIR /etc/ansible/roles/mafalb.ansible
 script:
+  - ansible-lint --force-color -v tests/test.yml
   - ansible-playbook --become -D tests/test.yml -C -t all,debug
   - ansible-playbook --become -D tests/test.yml    -t all,debug

@@ -2,3 +2,4 @@
 - hosts: localhost
   roles:
     - mafalb.ansible/control_machine
+    - mafalb.ansible/node
