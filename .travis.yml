@@ -3,11 +3,18 @@ sudo: required
 dist: xenial
 language: minimal
 env:
-  - targeted_ansible_version: 2.4
+  global:
+    - ANSIBLE_ROLE_NAME=mafalb.ansible
+    - CI=travis
+    - ANSIBLE_FORCE_COLOR=1
+  matrix:
+    - targeted_ansible_version: 2.7
 
 before_install:
+  - export ANSIBLE_CI_BRANCH=$TRAVIS_BRANCH CI_BUILD_DIR=$TRAVIS_BUILD_DIR
   - env
   - dpkg -l
+  - sudo -H pip install ansible-lint
   - pip list
   - docker --version
   - sudo apt-add-repository --yes ppa:ansible/ansible-${targeted_ansible_version}
