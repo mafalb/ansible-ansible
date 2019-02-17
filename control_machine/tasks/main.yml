@@ -12,7 +12,7 @@
 - name: ansible does exist
   package:
     name: ansible
-    state: "{{ (ansible_install_latest == true)|ternary('latest','present') }}"
+    state: "{{ (ansible_install_latest)|ternary('latest','present') }}"
 
 - name: debug ansible.lint
   debug: var=ansible.lint

@@ -1,5 +1,5 @@
 # vi: set ft=yaml ts=2:
 ---
-
+galaxy_info: {} # noqa 701
 dependencies:
   - role: mafalb.ansible
