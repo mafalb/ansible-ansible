@@ -19,7 +19,7 @@
     state: present
 
 - name: pyOpenSSL is absent for RedHat
-  when: 
+  when:
     - ansible_distribution in ['CentOS', 'RedHat']
     - ansible_distribution_major_version == '7'
   package:
