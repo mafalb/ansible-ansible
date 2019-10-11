@@ -4,15 +4,25 @@ dist: xenial
 language: minimal
 matrix:
   include:
-      - env:
-          - ANSIBLE_ROLE_NAME=mafalb.ansible
-          - CI=travis
-          - ANSIBLE_FORCE_COLOR=1
-        addons:
-          apt:
-            sources:
+    - env:
+        - ANSIBLE_ROLE_NAME=mafalb.ansible
+        - CI=travis
+        - ANSIBLE_FORCE_COLOR=1
+      addons:
+        apt:
+          sources:
+            - sourceline: "ppa:ansible/ansible-2.7"
+          packages:
+            - ansible
+    - env:
+        - ANSIBLE_ROLE_NAME=mafalb.ansible
+        - CI=travis
+        - ANSIBLE_FORCE_COLOR=1
+      addons:
+        apt:
+          sources:
             - sourceline: "ppa:ansible/ansible-2.8"
-            packages:
+          packages:
             - ansible
 
 before_install:
