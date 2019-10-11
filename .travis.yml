@@ -2,12 +2,15 @@
 sudo: required
 dist: xenial
 language: minimal
+env:
+ global:
+   - ANSIBLE_ROLE_NAME=mafalb.ansible
+   - CI=travis
+   - ANSIBLE_FORCE_COLOR=1
 matrix:
   include:
     - env:
-        - ANSIBLE_ROLE_NAME=mafalb.ansible
-        - CI=travis
-        - ANSIBLE_FORCE_COLOR=1
+        - ANSIBLE_VERSION=2.7
       addons:
         apt:
           sources:
@@ -15,9 +18,7 @@ matrix:
           packages:
             - ansible
     - env:
-        - ANSIBLE_ROLE_NAME=mafalb.ansible
-        - CI=travis
-        - ANSIBLE_FORCE_COLOR=1
+        - ANSIBLE_VERSION=2.8
       addons:
         apt:
           sources:
