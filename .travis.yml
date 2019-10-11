@@ -11,6 +11,11 @@ env:
     - targeted_ansible_version: 2.7
     - targeted_ansible_version: 2.8
 
+addons:
+  apt:
+    sources:
+    - sourceline: "ppa:ansible/ansible-${targeted_ansible_version}"
+
 before_install:
   - export ANSIBLE_CI_BRANCH=$TRAVIS_BRANCH CI_BUILD_DIR=$TRAVIS_BUILD_DIR
   - env
@@ -18,10 +23,6 @@ before_install:
   - sudo -H pip install ansible-lint
   - pip list
   - docker --version
-  - sudo apt-add-repository --yes ppa:ansible/ansible-${targeted_ansible_version}
-  - sudo apt-get update
-  - sudo apt-get install ansible && sudo mkdir -p /etc/ansible/roles
-  - sudo echo -e "localhost ansible_connection=local\n" | sudo tee /etc/ansible/hosts
   - ansible localhost -m setup
   - ansible --version
 install:
